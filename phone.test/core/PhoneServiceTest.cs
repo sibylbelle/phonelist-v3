@@ -14,14 +14,30 @@ namespace phone.test.core
     {
         [TestMethod]
         public void simplePhoneServiceTest() {
-            PhoneService service = new PhoneService();
+
+            IService service = new PhoneService();
             ICollection<PhoneModel> phones = service.listPhonesByUser(1);
+
+
             foreach (PhoneModel phone in phones) {
                 Assert.AreEqual(1, phone.applicantId);
                 if (phone.phoneCd.ToUpper().Equals("HM")){
                     Assert.AreEqual(5028011112, phone.phoneNumber);
                 }
             }
+        }
+        [TestMethod]
+        public void simplePhoneServiceTestWithFake() {
+            IService service = new PhoneServiceFake();
+            ICollection<PhoneModel> phones = service.listPhones();
+            Assert.AreEqual(3, phones.Count);
+        }
+        [TestMethod]
+        public void simplePhoneServiceByUserTestWithFake()
+        {
+            IService service = new PhoneServiceFake();
+            ICollection<PhoneModel> phones = service.listPhonesByUser(1);
+            Assert.AreEqual(2, phones.Count);
         }
     }
 }

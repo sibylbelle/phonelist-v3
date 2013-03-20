@@ -20,3 +20,15 @@ C:\Users\Wes\Documents\Visual Studio 2012\Projects\PhoneList\phone.test\bin\Debu
 C:\Users\Wes\Documents\Visual Studio 2012\Projects\PhoneList\phone.test\bin\Debug\EntityFramework.xml
 C:\Users\Wes\Documents\Visual Studio 2012\Projects\PhoneList\phone.test\obj\Debug\phone.test.dll
 C:\Users\Wes\Documents\Visual Studio 2012\Projects\PhoneList\phone.test\obj\Debug\phone.test.pdb
+C:\Users\Wes\projects\phonelist\phonelist-v3\phone.test\bin\Debug\phone.test.dll.config
+C:\Users\Wes\projects\phonelist\phonelist-v3\phone.test\bin\Debug\phone.test.dll
+C:\Users\Wes\projects\phonelist\phonelist-v3\phone.test\bin\Debug\phone.test.pdb
+C:\Users\Wes\projects\phonelist\phonelist-v3\phone.test\bin\Debug\phone.core.dll
+C:\Users\Wes\projects\phonelist\phonelist-v3\phone.test\bin\Debug\phone.dal.dll
+C:\Users\Wes\projects\phonelist\phonelist-v3\phone.test\bin\Debug\EntityFramework.dll
+C:\Users\Wes\projects\phonelist\phonelist-v3\phone.test\bin\Debug\phone.core.pdb
+C:\Users\Wes\projects\phonelist\phonelist-v3\phone.test\bin\Debug\phone.dal.pdb
+C:\Users\Wes\projects\phonelist\phonelist-v3\phone.test\bin\Debug\EntityFramework.xml
+C:\Users\Wes\projects\phonelist\phonelist-v3\phone.test\obj\Debug\phone.test.csprojResolveAssemblyReference.cache
+C:\Users\Wes\projects\phonelist\phonelist-v3\phone.test\obj\Debug\phone.test.dll
+C:\Users\Wes\projects\phonelist\phonelist-v3\phone.test\obj\Debug\phone.test.pdb
