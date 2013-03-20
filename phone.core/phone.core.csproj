@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1EC6979D-0A1D-43F8-A37C-F3DEE7337F8B}</ProjectGuid>
+    <ProjectGuid>{D66089C0-053B-4C03-92E7-B004B2CC101C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>phone.core</RootNamespace>
@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,8 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Models\PhoneCodeModel.cs" />
+    <Compile Include="Models\PhoneModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\PhoneService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\phone.dal\phone.dal.csproj">
+      <Project>{89eb14f0-0391-4877-880f-46ba9063331d}</Project>
+      <Name>phone.dal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

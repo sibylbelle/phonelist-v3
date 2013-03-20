@@ -4,11 +4,11 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PhoneDBDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="PhoneDBDataModelStoreContainer">
-          <EntitySet Name="Phone" EntityType="PhoneDBDataModel.Store.Phone" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PhoneCD" EntityType="PhoneDBDataModel.Store.PhoneCD" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Phone_PhoneCD" Association="PhoneDBDataModel.Store.FK_Phone_PhoneCD">
+    <Schema Namespace="PhoneDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="PhoneDBModelStoreContainer">
+          <EntitySet Name="Phone" EntityType="PhoneDBModel.Store.Phone" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PhoneCD" EntityType="PhoneDBModel.Store.PhoneCD" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Phone_PhoneCD" Association="PhoneDBModel.Store.FK_Phone_PhoneCD">
             <End Role="PhoneCD" EntitySet="PhoneCD" />
             <End Role="Phone" EntitySet="Phone" />
           </AssociationSet>
@@ -33,8 +33,8 @@
           <Property Name="MOD_DT" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK_Phone_PhoneCD">
-          <End Role="PhoneCD" Type="PhoneDBDataModel.Store.PhoneCD" Multiplicity="1" />
-          <End Role="Phone" Type="PhoneDBDataModel.Store.Phone" Multiplicity="*" />
+          <End Role="PhoneCD" Type="PhoneDBModel.Store.PhoneCD" Multiplicity="1" />
+          <End Role="Phone" Type="PhoneDBModel.Store.Phone" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PhoneCD">
               <PropertyRef Name="PHONE_CD" />
@@ -44,15 +44,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PhoneDBDataModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="PhoneDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="PhoneDBEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="Phones" EntityType="PhoneDBDataModel.Phone" />
-          <EntitySet Name="PhoneCDs" EntityType="PhoneDBDataModel.PhoneCD" />
-          <AssociationSet Name="FK_Phone_PhoneCD" Association="PhoneDBDataModel.FK_Phone_PhoneCD">
+          <EntitySet Name="Phones" EntityType="PhoneDBModel.Phone" />
+          <EntitySet Name="PhoneCDs" EntityType="PhoneDBModel.PhoneCD" />
+          <AssociationSet Name="FK_Phone_PhoneCD" Association="PhoneDBModel.FK_Phone_PhoneCD">
             <End Role="PhoneCD" EntitySet="PhoneCDs" />
             <End Role="Phone" EntitySet="Phones" />
           </AssociationSet>
@@ -61,13 +60,13 @@
           <Key>
             <PropertyRef Name="PHONE_ID" />
           </Key>
-          <Property Name="PHONE_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PHONE_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="PHONE_CD" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
           <Property Name="PHONE_TX" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
           <Property Name="CREATE_DT" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="MOD_DT" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="APPLICANT_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <NavigationProperty Name="PhoneCD" Relationship="PhoneDBDataModel.FK_Phone_PhoneCD" FromRole="Phone" ToRole="PhoneCD" />
+          <NavigationProperty Name="PhoneCD" Relationship="PhoneDBModel.FK_Phone_PhoneCD" FromRole="Phone" ToRole="PhoneCD" />
         </EntityType>
         <EntityType Name="PhoneCD">
           <Key>
@@ -76,11 +75,11 @@
           <Property Name="PHONE_CD" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
           <Property Name="PHONE_TX" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
           <Property Name="MOD_DT" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Phones" Relationship="PhoneDBDataModel.FK_Phone_PhoneCD" FromRole="PhoneCD" ToRole="Phone" />
+          <NavigationProperty Name="Phones" Relationship="PhoneDBModel.FK_Phone_PhoneCD" FromRole="PhoneCD" ToRole="Phone" />
         </EntityType>
         <Association Name="FK_Phone_PhoneCD">
-          <End Role="PhoneCD" Type="PhoneDBDataModel.PhoneCD" Multiplicity="1" />
-          <End Role="Phone" Type="PhoneDBDataModel.Phone" Multiplicity="*" />
+          <End Role="PhoneCD" Type="PhoneDBModel.PhoneCD" Multiplicity="1" />
+          <End Role="Phone" Type="PhoneDBModel.Phone" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PhoneCD">
               <PropertyRef Name="PHONE_CD" />
@@ -95,9 +94,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PhoneDBDataModelStoreContainer" CdmEntityContainer="PhoneDBEntities">
+        <EntityContainerMapping StorageEntityContainer="PhoneDBModelStoreContainer" CdmEntityContainer="PhoneDBEntities">
           <EntitySetMapping Name="Phones">
-            <EntityTypeMapping TypeName="PhoneDBDataModel.Phone">
+            <EntityTypeMapping TypeName="PhoneDBModel.Phone">
               <MappingFragment StoreEntitySet="Phone">
                 <ScalarProperty Name="PHONE_ID" ColumnName="PHONE_ID" />
                 <ScalarProperty Name="PHONE_CD" ColumnName="PHONE_CD" />
@@ -109,7 +108,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PhoneCDs">
-            <EntityTypeMapping TypeName="PhoneDBDataModel.PhoneCD">
+            <EntityTypeMapping TypeName="PhoneDBModel.PhoneCD">
               <MappingFragment StoreEntitySet="PhoneCD">
                 <ScalarProperty Name="PHONE_CD" ColumnName="PHONE_CD" />
                 <ScalarProperty Name="PHONE_TX" ColumnName="PHONE_TX" />
